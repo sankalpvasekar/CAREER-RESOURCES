@@ -1,0 +1,17 @@
+<svg viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#BF953F"/>
+      <stop offset="50%" stop-color="#FCF6BA"/>
+      <stop offset="100%" stop-color="#B38728"/>
+    </linearGradient>
+  </defs>
+  <!-- Left Cap -->
+  <path d="M 40 30 L 70 20 L 100 30 L 70 40 Z" fill="#3E2723"/>
+  <rect x="65" y="35" width="10" height="15" fill="#3E2723"/>
+  <!-- Text -->
+  <text x="200" y="38" font-family="sans-serif" font-weight="bold" font-size="24" text-anchor="middle" fill="url(#gold)" letter-spacing="1">CAREER RESOURCES</text>
+  <!-- Right Cap -->
+  <path d="M 300 30 L 330 20 L 360 30 L 330 40 Z" fill="#3E2723"/>
+  <rect x="325" y="35" width="10" height="15" fill="#3E2723"/>
+</svg>
