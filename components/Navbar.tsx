@@ -138,6 +138,20 @@ export default function Navbar() {
                   >
                     <UserPlus size={20} /> Create New Account
                   </Link>
+                  <Link 
+                    href="/about" 
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
+                  >
+                    About Us
+                  </Link>
+                  <Link 
+                    href="/disclaimer" 
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
+                  >
+                    Disclaimer
+                  </Link>
                 </>
               ) : (
                 <>
