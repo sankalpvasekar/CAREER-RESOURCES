@@ -4,23 +4,7 @@
       <feDropShadow dx="2" dy="2" stdDeviation="1" flood-color="#000" flood-opacity="0.3"/>
     </filter>
   </defs>
-
-  <!-- Left Cap: Positioned further left to avoid text collision -->
-  <g transform="translate(5, 5)">
-      <path d="M 30 40 L 70 25 L 110 40 L 70 55 Z" fill="#2C2C2C"/>
-      <rect x="65" y="45" width="10" height="20" fill="#2C2C2C"/>
-      <circle cx="70" cy="40" r="4" fill="#BF953F"/>
-      <path d="M 74 40 Q 80 60 70 65" stroke="#BF953F" stroke-width="2" fill="none"/>
-  </g>
-
-  <!-- Text: Centered at 250 -->
-  <text x="250" y="50" font-family="Arial, sans-serif" font-weight="900" font-size="30" text-anchor="middle" fill="#BF953F" filter="url(#textShadow)" letter-spacing="1">CAREER RESOURCES</text>
-
-  <!-- Right Cap: Positioned further right to avoid text collision -->
-  <g transform="translate(390, 5)">
-      <path d="M 30 40 L 70 25 L 110 40 L 70 55 Z" fill="#2C2C2C"/>
-      <rect x="65" y="45" width="10" height="20" fill="#2C2C2C"/>
-      <circle cx="70" cy="40" r="4" fill="#BF953F"/>
-      <path d="M 74 40 Q 80 60 70 65" stroke="#BF953F" stroke-width="2" fill="none"/>
-  </g>
+  
+  <!-- Text: Centered -->
+  <text x="250" y="55" font-family="Arial, sans-serif" font-weight="900" font-size="40" text-anchor="middle" fill="#BF953F" filter="url(#textShadow)" letter-spacing="1">CAREER RESOURCES</text>
 </svg>
