@@ -1,23 +1,26 @@
 <svg viewBox="0 0 500 80" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Shadow filter for the gold text -->
     <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="2" dy="2" stdDeviation="1" flood-color="#000" flood-opacity="0.3"/>
     </filter>
   </defs>
 
-  <!-- Left Cap -->
-  <path d="M 50 40 L 90 25 L 130 40 L 90 55 Z" fill="#2C2C2C"/>
-  <rect x="85" y="45" width="10" height="20" fill="#2C2C2C"/>
-  <circle cx="90" cy="40" r="4" fill="#BF953F"/>
-  <path d="M 94 40 Q 100 60 90 65" stroke="#BF953F" stroke-width="2" fill="none"/>
+  <!-- Left Cap (Moved further left) -->
+  <g transform="translate(10, 5)">
+      <path d="M 50 40 L 90 25 L 130 40 L 90 55 Z" fill="#2C2C2C"/>
+      <rect x="85" y="45" width="10" height="20" fill="#2C2C2C"/>
+      <circle cx="90" cy="40" r="4" fill="#BF953F"/>
+      <path d="M 94 40 Q 100 60 90 65" stroke="#BF953F" stroke-width="2" fill="none"/>
+  </g>
 
-  <!-- Text -->
-  <text x="250" y="55" font-family="Arial, sans-serif" font-weight="900" font-size="40" text-anchor="middle" fill="#BF953F" filter="url(#textShadow)" letter-spacing="2">CAREER RESOURCES</text>
+  <!-- Text (Centered) -->
+  <text x="250" y="55" font-family="Arial, sans-serif" font-weight="900" font-size="36" text-anchor="middle" fill="#BF953F" filter="url(#textShadow)" letter-spacing="1">CAREER RESOURCES</text>
 
-  <!-- Right Cap -->
-  <path d="M 370 40 L 410 25 L 450 40 L 410 55 Z" fill="#2C2C2C"/>
-  <rect x="405" y="45" width="10" height="20" fill="#2C2C2C"/>
-  <circle cx="410" cy="40" r="4" fill="#BF953F"/>
-  <path d="M 414 40 Q 420 60 410 65" stroke="#BF953F" stroke-width="2" fill="none"/>
+  <!-- Right Cap (Moved further right) -->
+  <g transform="translate(30, 5)">
+      <path d="M 370 40 L 410 25 L 450 40 L 410 55 Z" fill="#2C2C2C"/>
+      <rect x="405" y="45" width="10" height="20" fill="#2C2C2C"/>
+      <circle cx="410" cy="40" r="4" fill="#BF953F"/>
+      <path d="M 414 40 Q 420 60 410 65" stroke="#BF953F" stroke-width="2" fill="none"/>
+  </g>
 </svg>
