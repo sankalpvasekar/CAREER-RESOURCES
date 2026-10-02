@@ -150,6 +150,20 @@ export default function Navbar() {
                       <LayoutDashboard size={20} className="text-[#C5A059]" /> Executive Dashboard
                     </Link>
                   )}
+                  <Link 
+                    href="/about" 
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
+                  >
+                    About Us
+                  </Link>
+                  <Link 
+                    href="/disclaimer" 
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
+                  >
+                    Disclaimer
+                  </Link>
                   <button 
                     onClick={handleLogout}
                     className="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-50 text-sm font-bold text-red-500 border border-red-100"
