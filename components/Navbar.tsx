@@ -60,7 +60,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-[#C5A059]/10 h-14">
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-[#C5A059]/10 h-12">
       <div className="max-w-7xl mx-auto px-5 h-full flex justify-between items-center">
         {/* LOGO - SLIMMER */}
         <Link href={user?.isAdmin ? "/admin" : "/"} className="transition-opacity hover:opacity-80">
@@ -68,8 +68,8 @@ export default function Navbar() {
             <Image 
               src="/new logo.png" 
               alt="Logo" 
-              width={160} 
-              height={40} 
+              width={120} 
+              height={30} 
               className="object-contain"
             />
           </div>
@@ -123,7 +123,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-14 left-0 right-0 bg-[#FFFBF2] border-b border-[#C5A059]/20 shadow-2xl md:hidden overflow-hidden"
+            className="absolute top-12 left-0 right-0 bg-[#FFFBF2] border-b border-[#C5A059]/20 shadow-2xl md:hidden overflow-hidden"
           >
             <div className="p-5 flex flex-col gap-4">
               {!isLogged ? (
