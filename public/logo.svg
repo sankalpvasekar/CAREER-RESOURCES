@@ -11,8 +11,8 @@
     </filter>
   </defs>
 
-  <!-- LEFT GRADUATION CAP: Moved further left -->
-  <g transform="translate(10, 25) scale(1.1)" filter="url(#textShadow)">
+  <!-- LEFT GRADUATION CAP: Adjusted up and slightly smaller -->
+  <g transform="translate(15, 10) scale(1.0)" filter="url(#textShadow)">
     <path d="M12,21 L12,29.5 C12,35.5 40,35.5 40,29.5 L40,21 C36,24.5 28,26.5 26,26.5 C24,26.5 16,24.5 12,21 Z" fill="#1C1B1F"/>
     <polygon points="26,5 50,16 26,27 2,16" fill="#111111"/>
     <polygon points="26,6 48,16 26,26 4,16" fill="#222222"/>
@@ -21,26 +21,12 @@
     <circle cx="43" cy="27" r="1.8" fill="#BF953F"/>
     <path d="M43,28 L41.5,37 C41.5,38 44.5,38 44.5,37 L43,28 Z" fill="#BF953F"/>
   </g>
-
 
   <!-- CENTER TITLE -->
-  <text
-    x="310"
-    y="55"
-    font-family="Arial, sans-serif"
-    font-weight="900"
-    font-size="42"
-    text-anchor="middle"
-    fill="#BF953F"
-    filter="url(#textShadow)"
-    letter-spacing="1"
-  >
-    CAREER RESOURCES
-  </text>
+  <text x="310" y="55" font-family="Arial, sans-serif" font-weight="900" font-size="42" text-anchor="middle" fill="#BF953F" filter="url(#textShadow)" letter-spacing="1">CAREER RESOURCES</text>
 
-
-  <!-- RIGHT GRADUATION CAP: Moved further right -->
-  <g transform="translate(560, 25) scale(1.1)" filter="url(#textShadow)">
+  <!-- RIGHT GRADUATION CAP: Adjusted up and slightly smaller -->
+  <g transform="translate(555, 10) scale(1.0)" filter="url(#textShadow)">
     <path d="M12,21 L12,29.5 C12,35.5 40,35.5 40,29.5 L40,21 C36,24.5 28,26.5 26,26.5 C24,26.5 16,24.5 12,21 Z" fill="#1C1B1F"/>
     <polygon points="26,5 50,16 26,27 2,16" fill="#111111"/>
     <polygon points="26,6 48,16 26,26 4,16" fill="#222222"/>
@@ -49,5 +35,4 @@
     <circle cx="43" cy="27" r="1.8" fill="#BF953F"/>
     <path d="M43,28 L41.5,37 C41.5,38 44.5,38 44.5,37 L43,28 Z" fill="#BF953F"/>
   </g>
-
 </svg>
