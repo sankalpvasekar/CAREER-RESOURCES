@@ -11,61 +11,15 @@
     </filter>
   </defs>
 
-  <!-- LEFT GRADUATION CAP -->
-  <g transform="translate(30, 20) scale(1.1)" filter="url(#textShadow)">
-
-    <!-- Skull Cap Base -->
-    <path
-      d="M12,21
-         L12,29.5
-         C12,35.5 40,35.5 40,29.5
-         L40,21
-         C36,24.5 28,26.5 26,26.5
-         C24,26.5 16,24.5 12,21 Z"
-      fill="#1C1B1F"
-    />
-
-    <!-- Mortarboard -->
-    <polygon
-      points="26,5 50,16 26,27 2,16"
-      fill="#111111"
-    />
-
-    <polygon
-      points="26,6 48,16 26,26 4,16"
-      fill="#222222"
-    />
-
-    <!-- Center Button -->
-    <circle
-      cx="26"
-      cy="16"
-      r="2"
-      fill="#BF953F"
-    />
-
-    <!-- Gold Tassel -->
-    <path
-      d="M26,16 Q36,19 43,26"
-      stroke="#BF953F"
-      stroke-width="1.8"
-      fill="none"
-      stroke-linecap="round"
-    />
-
-    <circle
-      cx="43"
-      cy="27"
-      r="1.8"
-      fill="#BF953F"
-    />
-
-    <path
-      d="M43,28 L41.5,37
-         C41.5,38 44.5,38 44.5,37
-         L43,28 Z"
-      fill="#BF953F"
-    />
+  <!-- LEFT GRADUATION CAP: Moved further left -->
+  <g transform="translate(10, 25) scale(1.1)" filter="url(#textShadow)">
+    <path d="M12,21 L12,29.5 C12,35.5 40,35.5 40,29.5 L40,21 C36,24.5 28,26.5 26,26.5 C24,26.5 16,24.5 12,21 Z" fill="#1C1B1F"/>
+    <polygon points="26,5 50,16 26,27 2,16" fill="#111111"/>
+    <polygon points="26,6 48,16 26,26 4,16" fill="#222222"/>
+    <circle cx="26" cy="16" r="2" fill="#BF953F"/>
+    <path d="M26,16 Q36,19 43,26" stroke="#BF953F" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <circle cx="43" cy="27" r="1.8" fill="#BF953F"/>
+    <path d="M43,28 L41.5,37 C41.5,38 44.5,38 44.5,37 L43,28 Z" fill="#BF953F"/>
   </g>
 
 
@@ -85,61 +39,15 @@
   </text>
 
 
-  <!-- RIGHT GRADUATION CAP -->
-  <g transform="translate(540, 20) scale(1.1)" filter="url(#textShadow)">
-
-    <!-- Skull Cap Base -->
-    <path
-      d="M12,21
-         L12,29.5
-         C12,35.5 40,35.5 40,29.5
-         L40,21
-         C36,24.5 28,26.5 26,26.5
-         C24,26.5 16,24.5 12,21 Z"
-      fill="#1C1B1F"
-    />
-
-    <!-- Mortarboard -->
-    <polygon
-      points="26,5 50,16 26,27 2,16"
-      fill="#111111"
-    />
-
-    <polygon
-      points="26,6 48,16 26,26 4,16"
-      fill="#222222"
-    />
-
-    <!-- Center Button -->
-    <circle
-      cx="26"
-      cy="16"
-      r="2"
-      fill="#BF953F"
-    />
-
-    <!-- Gold Tassel -->
-    <path
-      d="M26,16 Q36,19 43,26"
-      stroke="#BF953F"
-      stroke-width="1.8"
-      fill="none"
-      stroke-linecap="round"
-    />
-
-    <circle
-      cx="43"
-      cy="27"
-      r="1.8"
-      fill="#BF953F"
-    />
-
-    <path
-      d="M43,28 L41.5,37
-         C41.5,38 44.5,38 44.5,37
-         L43,28 Z"
-      fill="#BF953F"
-    />
+  <!-- RIGHT GRADUATION CAP: Moved further right -->
+  <g transform="translate(560, 25) scale(1.1)" filter="url(#textShadow)">
+    <path d="M12,21 L12,29.5 C12,35.5 40,35.5 40,29.5 L40,21 C36,24.5 28,26.5 26,26.5 C24,26.5 16,24.5 12,21 Z" fill="#1C1B1F"/>
+    <polygon points="26,5 50,16 26,27 2,16" fill="#111111"/>
+    <polygon points="26,6 48,16 26,26 4,16" fill="#222222"/>
+    <circle cx="26" cy="16" r="2" fill="#BF953F"/>
+    <path d="M26,16 Q36,19 43,26" stroke="#BF953F" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <circle cx="43" cy="27" r="1.8" fill="#BF953F"/>
+    <path d="M43,28 L41.5,37 C41.5,38 44.5,38 44.5,37 L43,28 Z" fill="#BF953F"/>
   </g>
 
 </svg>
