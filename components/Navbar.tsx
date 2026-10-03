@@ -60,15 +60,17 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-[#C5A059]/10 h-14">
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-[#C5A059]/10 h-12">
       <div className="max-w-7xl mx-auto px-5 h-full flex justify-between items-center">
-        {/* LOGO - SLIMMER */}
+        {/* LOGO - SVG BASED */}
         <Link href={user?.isAdmin ? "/admin" : "/"} className="transition-opacity hover:opacity-80">
-          <div className="flex items-center font-black text-xl md:text-2xl tracking-tighter">
-            <span className="text-blue-600">PRIME</span>
-            <span className="text-orange-500 mx-1.5 text-lg md:text-xl transform scale-y-110">EDUCATIONAL</span>
-            <span className="text-green-600">SERVICES</span>
-          </div>
+            <Image 
+              src="/logo.svg" 
+              alt="Logo" 
+              width={200} 
+              height={35} 
+              className="object-contain"
+            />
         </Link>
 
         {/* DESKTOP MENU - COMPACT */}
@@ -101,8 +103,12 @@ export default function Navbar() {
 
         {/* COMPACT HAMBURGER (MOBILE) */}
         <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-1.5 text-[#5D4037] hover:bg-[#C5A059]/5 rounded-md transition-colors"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsOpen(!isOpen);
+          }}
+          className="md:hidden p-1.5 text-[#5D4037] hover:bg-[#C5A059]/5 rounded-md transition-colors z-[101]"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -115,7 +121,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-14 left-0 right-0 bg-[#FFFBF2] border-b border-[#C5A059]/20 shadow-2xl md:hidden overflow-hidden"
+            className="absolute top-12 left-0 right-0 bg-[#FFFBF2] border-b border-[#C5A059]/20 shadow-2xl md:hidden overflow-hidden"
           >
             <div className="p-5 flex flex-col gap-4">
               {!isLogged ? (
@@ -134,6 +140,20 @@ export default function Navbar() {
                   >
                     <UserPlus size={20} /> Create New Account
                   </Link>
+                  <Link 
+                    href="/about" 
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
+                  >
+                    About Us
+                  </Link>
+                  <Link 
+                    href="/disclaimer" 
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
+                  >
+                    Disclaimer
+                  </Link>
                 </>
               ) : (
                 <>
@@ -146,6 +166,20 @@ export default function Navbar() {
                       <LayoutDashboard size={20} className="text-[#C5A059]" /> Executive Dashboard
                     </Link>
                   )}
+                  <Link 
+                    href="/about" 
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
+                  >
+                    About Us
+                  </Link>
+                  <Link 
+                    href="/disclaimer" 
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
+                  >
+                    Disclaimer
+                  </Link>
                   <button 
                     onClick={handleLogout}
                     className="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-50 text-sm font-bold text-red-500 border border-red-100"
