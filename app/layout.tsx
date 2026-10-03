@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', weight: ['700'] });
 
 export const metadata: Metadata = {
-  title: 'Prime Educational Services',
+  title: 'Career Resources',
   description: 'Premium Study Notes & PDF Material',
   icons: {
     icon: '/new davicon.png',
