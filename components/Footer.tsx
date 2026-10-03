@@ -16,10 +16,14 @@ export default function Footer() {
       <footer className="w-full bg-[#FDFBF7] border-t border-[#C5A059]/10 pt-16 pb-12 mt-auto">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="flex flex-col items-center gap-6">
-             <div className="flex items-center font-black text-2xl md:text-3xl tracking-tighter cursor-default">
-               <span className="text-blue-600">PRIME</span>
-               <span className="text-orange-500 mx-1.5 text-xl md:text-2xl transform scale-y-110">EDUCATIONAL</span>
-               <span className="text-green-600">SERVICES</span>
+             <div className="flex items-center">
+               <Image 
+                 src="/logo.svg" 
+                 alt="Logo" 
+                 width={200} 
+                 height={40} 
+                 className="object-contain"
+               />
              </div>
              
              <div className="space-y-4">
@@ -47,16 +51,20 @@ export default function Footer() {
     <footer className="w-full bg-[#FDFBF7] border-t border-[#C5A059]/10 pt-16 pb-12 mt-auto">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12 text-left">
         
-        {/* Column 1: Brand & Bio */}
-        <div className="space-y-6 max-w-sm">
-          <div className="flex items-center font-black text-2xl md:text-3xl tracking-tighter cursor-default">
-            <span className="text-blue-600">PRIME</span>
-            <span className="text-orange-500 mx-1.5 text-xl md:text-2xl transform scale-y-110">EDUCATIONAL</span>
-            <span className="text-green-600">SERVICES</span>
-          </div>
-          <p className="text-sm text-[#A1887F] font-medium leading-relaxed">
-            The vintage haven for premium study notes and expert-curated materials. Master UPSC, MPSC, and 12+ other categories.
-          </p>
+         {/* Column 1: Brand & Bio */}
+         <div className="space-y-6 max-w-sm">
+           <div className="flex items-center">
+             <Image 
+               src="/logo.svg" 
+               alt="Logo" 
+               width={200} 
+               height={40} 
+               className="object-contain"
+             />
+           </div>
+           <p className="text-sm text-[#A1887F] font-medium leading-relaxed">
+             The vintage haven for premium study notes and expert-curated materials. Master UPSC, MPSC, and 12+ other categories.
+           </p>
           <div className="flex gap-4 text-[#C5A059]">
              <Link href="#" className="hover:text-[#5D4037] transition-colors"><Globe size={20} /></Link>
              <Link href="#" className="hover:text-[#5D4037] transition-colors"><MessageCircle size={20} /></Link>
