@@ -10,6 +10,8 @@ export default function AdminDashboard() {
         <Link href="/admin/company" className="p-4 bg-white border rounded">Company Info</Link>
         <Link href="/admin/preparation" className="p-4 bg-white border rounded">Preparation Material</Link>
         <Link href="/admin/payments" className="p-4 bg-white border rounded">Payment Config</Link>
+        <Link href="/admin/about" className="p-4 bg-white border rounded">About Us Config</Link>
+        <Link href="/admin/disclaimer" className="p-4 bg-white border rounded">Disclaimer Config</Link>
       </div>
     </div>
   );
