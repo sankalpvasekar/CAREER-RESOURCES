@@ -59,7 +59,7 @@ export default function RegisterPage() {
         <div className="flex flex-col items-center mb-10">
           <Link href="/">
             <Image 
-              src="/navbar.png" 
+              src="/logo.svg" 
               alt="Logo" 
               width={200} 
               height={55} 
