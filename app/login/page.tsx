@@ -74,14 +74,13 @@ export default function LoginPage() {
         <div className="flex flex-col items-center mb-10">
           <Link href="/">
             <Image 
-              src="/navbar.png" 
+              src="/logo.svg" 
               alt="Logo" 
               width={200} 
               height={55} 
               className="object-contain mb-2 cursor-pointer" 
             />
           </Link>
-          <p className="text-[#A1887F] text-xs font-bold uppercase tracking-widest">Premium Study Portal</p>
         </div>
 
         {warning && (
