@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   title: 'Career Resources',
   description: 'Premium Study Notes & PDF Material',
   icons: {
-    icon: '/new davicon.png',
-    apple: '/new davicon.png',
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
   manifest: '/manifest.json',
 };
