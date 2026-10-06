@@ -1,11 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Menu, X, LogIn, UserPlus, LogOut, LayoutDashboard } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
+import Logo from '@/components/Logo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,15 +63,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-[#C5A059]/10 h-14">
       <div className="max-w-7xl mx-auto px-5 h-full flex justify-between items-center">
         <Link href={user?.isAdmin ? "/admin" : "/"} className="transition-opacity hover:opacity-80">
-          <div className="flex items-center">
-            <Image 
-              src="/logo.svg" 
-              alt={siteTitle} 
-              width={220} 
-              height={40} 
-              className="object-contain"
-            />
-          </div>
+          <Logo title={siteTitle} />
         </Link>
 
         {/* Desktop Menu */}
@@ -123,66 +115,19 @@ export default function Navbar() {
             <div className="p-5 flex flex-col gap-4">
               {!isLogged ? (
                 <>
-                  <Link 
-                    href="/login" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                  >
-                    <LogIn size={20} className="text-[#C5A059]" /> Login
-                  </Link>
-                  <Link 
-                    href="/register" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#C5A059] text-sm font-bold text-white shadow-lg"
-                  >
-                    <UserPlus size={20} /> Create New Account
-                  </Link>
-                  <Link 
-                    href="/about" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                  >
-                    About Us
-                  </Link>
-                  <Link 
-                    href="/disclaimer" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                  >
-                    Disclaimer
-                  </Link>
+                  <Link href="/login" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"><LogIn size={20} className="text-[#C5A059]" /> Login</Link>
+                  <Link href="/register" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#C5A059] text-sm font-bold text-white shadow-lg"><UserPlus size={20} /> Create New Account</Link>
+                  <Link href="/about" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]">About Us</Link>
+                  <Link href="/disclaimer" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]">Disclaimer</Link>
                 </>
               ) : (
                 <>
                   {user?.isAdmin && (
-                    <Link 
-                      href="/admin" 
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                    >
-                      <LayoutDashboard size={20} className="text-[#C5A059]" /> Executive Dashboard
-                    </Link>
+                    <Link href="/admin" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"><LayoutDashboard size={20} className="text-[#C5A059]" /> Executive Dashboard</Link>
                   )}
-                  <Link 
-                    href="/about" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                  >
-                    About Us
-                  </Link>
-                  <Link 
-                    href="/disclaimer" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                  >
-                    Disclaimer
-                  </Link>
-                  <button 
-                    onClick={handleLogout}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-50 text-sm font-bold text-red-500 border border-red-100"
-                  >
-                    <LogOut size={20} /> Logout Securely
-                  </button>
+                  <Link href="/about" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]">About Us</Link>
+                  <Link href="/disclaimer" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]">Disclaimer</Link>
+                  <button onClick={handleLogout} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-50 text-sm font-bold text-red-500 border border-red-100"><LogOut size={20} /> Logout Securely</button>
                 </>
               )}
             </div>
