@@ -7,6 +7,7 @@ export default function AdminDashboard() {
         <div className="grid gap-4">
         <Link href="/admin/hero" className="p-4 bg-white border rounded">Hero Section</Link>
         <Link href="/admin/home" className="p-4 bg-white border rounded">Home Page Config</Link>
+        <Link href="/admin/title" className="p-4 bg-white border rounded">Site Title Config</Link>
         <Link href="/admin/company" className="p-4 bg-white border rounded">Company Info</Link>
         <Link href="/admin/preparation" className="p-4 bg-white border rounded">Preparation Material</Link>
         <Link href="/admin/payments" className="p-4 bg-white border rounded">Payment Config</Link>

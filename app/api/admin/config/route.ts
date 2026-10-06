@@ -34,13 +34,14 @@ export async function POST(req: NextRequest) {
     const highlight_text = body.highlight_text !== undefined ? body.highlight_text : (existing.highlight_text || '500+ Companies Trusted Us');
     const about_content = body.about_content !== undefined ? body.about_content : (existing.about_content || '');
     const disclaimer_content = body.disclaimer_content !== undefined ? body.disclaimer_content : (existing.disclaimer_content || '');
+    const site_title = body.site_title !== undefined ? body.site_title : (existing.site_title || 'CAREER RESOURCES');
 
-    // Update DB
+    // 3. Update DB
     await query(`
       UPDATE admins_data 
-      SET hero_images = $1, company_pdfs = $2, preparation_pdfs = $3, price = $4, highlight_text = $5, about_content = $6, disclaimer_content = $7
+      SET hero_images = $1, company_pdfs = $2, preparation_pdfs = $3, price = $4, highlight_text = $5, about_content = $6, disclaimer_content = $7, site_title = $8
       WHERE id = 1
-    `, [JSON.stringify(hero_images), JSON.stringify(company_pdfs), JSON.stringify(preparation_pdfs), price, highlight_text, about_content, disclaimer_content]);
+    `, [JSON.stringify(hero_images), JSON.stringify(company_pdfs), JSON.stringify(preparation_pdfs), price, highlight_text, about_content, disclaimer_content, site_title]);
 
     return NextResponse.json({ success: true, message: 'Configuration updated!' });
   } catch (err) {

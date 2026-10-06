@@ -11,7 +11,7 @@
     </filter>
   </defs>
 
-  <!-- LEFT GRADUATION CAP: Scaled up, moved left, and vertically centered -->
+  <!-- Left Graduation Cap -->
   <g transform="translate(12, 17) scale(1.2)" filter="url(#textShadow)">
     <path d="M12,21 L12,29.5 C12,35.5 40,35.5 40,29.5 L40,21 C36,24.5 28,26.5 26,26.5 C24,26.5 16,24.5 12,21 Z" fill="#1C1B1F"/>
     <polygon points="26,5 50,16 26,27 2,16" fill="#111111"/>
@@ -22,10 +22,12 @@
     <path d="M43,28 L41.5,37 C41.5,38 44.5,38 44.5,37 L43,28 Z" fill="#BF953F"/>
   </g>
 
-  <!-- CENTER TITLE -->
-  <text x="330" y="55" font-family="Arial, sans-serif" font-weight="900" font-size="42" text-anchor="middle" fill="#BF953F" filter="url(#textShadow)" letter-spacing="1">CAREER RESOURCES</text>
+  <!-- CENTER TITLE: Now injected dynamically via JavaScript in Navbar -->
+  <text id="logo-text" x="330" y="55" font-family="Arial, sans-serif" font-weight="900" font-size="42" text-anchor="middle" fill="#BF953F" filter="url(#textShadow)" letter-spacing="1">
+    CAREER RESOURCES
+  </text>
 
-  <!-- RIGHT GRADUATION CAP: Scaled up, moved right, and vertically centered -->
+  <!-- Right Graduation Cap -->
   <g transform="translate(588, 17) scale(1.2)" filter="url(#textShadow)">
     <path d="M12,21 L12,29.5 C12,35.5 40,35.5 40,29.5 L40,21 C36,24.5 28,26.5 26,26.5 C24,26.5 16,24.5 12,21 Z" fill="#1C1B1F"/>
     <polygon points="26,5 50,16 26,27 2,16" fill="#111111"/>
