@@ -1,0 +1,38 @@
+export default function Logo({ title }: { title: string }) {
+  return (
+    <svg viewBox="0 0 660 80" xmlns="http://www.w3.org/2000/svg" width="220" height="40">
+      <defs>
+        <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="2" dy="2" stdDeviation="1" floodColor="#000" floodOpacity="0.3"/>
+        </filter>
+      </defs>
+
+      {/* Left Graduation Cap */}
+      <g transform="translate(12, 17) scale(1.2)" filter="url(#textShadow)">
+        <path d="M12,21 L12,29.5 C12,35.5 40,35.5 40,29.5 L40,21 C36,24.5 28,26.5 26,26.5 C24,26.5 16,24.5 12,21 Z" fill="#1C1B1F"/>
+        <polygon points="26,5 50,16 26,27 2,16" fill="#111111"/>
+        <polygon points="26,6 48,16 26,26 4,16" fill="#222222"/>
+        <circle cx="26" cy="16" r="2" fill="#BF953F"/>
+        <path d="M26,16 Q36,19 43,26" stroke="#BF953F" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+        <circle cx="43" cy="27" r="1.8" fill="#BF953F"/>
+        <path d="M43,28 L41.5,37 C41.5,38 44.5,38 44.5,37 L43,28 Z" fill="#BF953F"/>
+      </g>
+
+      {/* CENTER TITLE */}
+      <text x="330" y="55" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="42" textAnchor="middle" fill="#000000" filter="url(#textShadow)" letterSpacing="1">
+        {title}
+      </text>
+
+      {/* Right Graduation Cap */}
+      <g transform="translate(588, 17) scale(1.2)" filter="url(#textShadow)">
+        <path d="M12,21 L12,29.5 C12,35.5 40,35.5 40,29.5 L40,21 C36,24.5 28,26.5 26,26.5 C24,26.5 16,24.5 12,21 Z" fill="#1C1B1F"/>
+        <polygon points="26,5 50,16 26,27 2,16" fill="#111111"/>
+        <polygon points="26,6 48,16 26,26 4,16" fill="#222222"/>
+        <circle cx="26" cy="16" r="2" fill="#BF953F"/>
+        <path d="M26,16 Q36,19 43,26" stroke="#BF953F" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+        <circle cx="43" cy="27" r="1.8" fill="#BF953F"/>
+        <path d="M43,28 L41.5,37 C41.5,38 44.5,38 44.5,37 L43,28 Z" fill="#BF953F"/>
+      </g>
+    </svg>
+  );
+}

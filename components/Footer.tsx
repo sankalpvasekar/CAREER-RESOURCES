@@ -62,7 +62,7 @@ export default function Footer() {
                className="object-contain"
              />
            </div>
-           <p className="text-sm text-[#A1887F] font-medium leading-relaxed">
+           <p className="text-sm text-[#A1887F] font-medium leading-relaxed hidden">
              The vintage haven for premium study notes and expert-curated materials. Master UPSC, MPSC, and 12+ other categories.
            </p>
           <div className="flex gap-4 text-[#C5A059]">
@@ -82,7 +82,7 @@ export default function Footer() {
                <Link href="mailto:primeeducationalservices515@gmail.com" className="text-sm text-[#3E2723] font-bold hover:text-[#C5A059] transition-colors">primeeducationalservices515@gmail.com</Link>
              </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-[#C5A059]/10">
+           <div className="mt-8 pt-8 border-t border-[#C5A059]/10 hidden">
              <p className="text-[10px] text-[#A1887F] font-bold uppercase tracking-widest">
                 Dedicated to Educational Excellence
              </p>

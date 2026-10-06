@@ -1,20 +1,24 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Menu, X, LogIn, UserPlus, LogOut, LayoutDashboard } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
+import Logo from '@/components/Logo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [user, setUser] = useState<{ isAdmin?: boolean } | null>(null);
+  const [siteTitle, setSiteTitle] = useState('CAREER RESOURCES');
   const router = useRouter();
 
   useEffect(() => {
-    // Instant auth check
+    fetch('/api/admin/config').then(res => res.json()).then(data => {
+      setSiteTitle(data.site_title || 'CAREER RESOURCES');
+    });
+
     const checkAuth = () => {
       const token = localStorage.getItem('auth_token');
       const storedUser = localStorage.getItem('user');
@@ -31,7 +35,6 @@ export default function Navbar() {
     };
     checkAuth();
     
-    // Listen for cross-tab or same-window authentication updates
     window.addEventListener('focus', checkAuth);
     window.addEventListener('storage', checkAuth);
     window.addEventListener('auth-change', checkAuth);
@@ -46,10 +49,7 @@ export default function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem('auth_token');
     localStorage.removeItem('user');
-    // Notify app of auth change
     window.dispatchEvent(new Event('auth-change'));
-
-    // Call server-side logout to clear httpOnly cookie
     fetch('/api/auth/logout', { method: 'POST' }).finally(() => {
       setIsLogged(false);
       setIsOpen(false);
@@ -60,17 +60,13 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-[#C5A059]/10 h-12">
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-[#C5A059]/10 h-14">
       <div className="max-w-7xl mx-auto px-5 h-full flex justify-between items-center">
-        {/* LOGO - TEXT BASED */}
         <Link href={user?.isAdmin ? "/admin" : "/"} className="transition-opacity hover:opacity-80">
-          <div className="flex items-center font-black text-lg md:text-xl tracking-tighter">
-            <span className="text-[#3E2723]">CAREER</span>
-            <span className="text-[#C5A059] mx-1.5 text-xl md:text-2xl transform scale-y-110">RESOURCES</span>
-          </div>
+          <Logo title={siteTitle} />
         </Link>
 
-        {/* DESKTOP MENU - COMPACT */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-5">
           {!isLogged ? (
             <>
@@ -98,91 +94,40 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* COMPACT HAMBURGER (MOBILE) */}
+        {/* Mobile Hamburger */}
         <button 
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setIsOpen(!isOpen);
-          }}
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsOpen(!isOpen); }}
           className="md:hidden p-1.5 text-[#5D4037] hover:bg-[#C5A059]/5 rounded-md transition-colors z-[101]"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* COMPACT SLIDE-DOWN MENU (MOBILE) */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-12 left-0 right-0 bg-[#FFFBF2] border-b border-[#C5A059]/20 shadow-2xl md:hidden overflow-hidden"
+            className="absolute top-14 left-0 right-0 bg-[#FFFBF2] border-b border-[#C5A059]/20 shadow-2xl md:hidden overflow-hidden"
           >
             <div className="p-5 flex flex-col gap-4">
               {!isLogged ? (
                 <>
-                  <Link 
-                    href="/login" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                  >
-                    <LogIn size={20} className="text-[#C5A059]" /> Login
-                  </Link>
-                  <Link 
-                    href="/register" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#C5A059] text-sm font-bold text-white shadow-lg"
-                  >
-                    <UserPlus size={20} /> Create New Account
-                  </Link>
-                  <Link 
-                    href="/about" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                  >
-                    About Us
-                  </Link>
-                  <Link 
-                    href="/disclaimer" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                  >
-                    Disclaimer
-                  </Link>
+                  <Link href="/login" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"><LogIn size={20} className="text-[#C5A059]" /> Login</Link>
+                  <Link href="/register" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-[#C5A059] text-sm font-bold text-white shadow-lg"><UserPlus size={20} /> Create New Account</Link>
+                  <Link href="/about" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]">About Us</Link>
+                  <Link href="/disclaimer" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]">Disclaimer</Link>
                 </>
               ) : (
                 <>
                   {user?.isAdmin && (
-                    <Link 
-                      href="/admin" 
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                    >
-                      <LayoutDashboard size={20} className="text-[#C5A059]" /> Executive Dashboard
-                    </Link>
+                    <Link href="/admin" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"><LayoutDashboard size={20} className="text-[#C5A059]" /> Executive Dashboard</Link>
                   )}
-                  <Link 
-                    href="/about" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                  >
-                    About Us
-                  </Link>
-                  <Link 
-                    href="/disclaimer" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]"
-                  >
-                    Disclaimer
-                  </Link>
-                  <button 
-                    onClick={handleLogout}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-50 text-sm font-bold text-red-500 border border-red-100"
-                  >
-                    <LogOut size={20} /> Logout Securely
-                  </button>
+                  <Link href="/about" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]">About Us</Link>
+                  <Link href="/disclaimer" onClick={() => setIsOpen(false)} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#C5A059]/10 text-sm font-bold text-[#3E2723]">Disclaimer</Link>
+                  <button onClick={handleLogout} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-50 text-sm font-bold text-red-500 border border-red-100"><LogOut size={20} /> Logout Securely</button>
                 </>
               )}
             </div>

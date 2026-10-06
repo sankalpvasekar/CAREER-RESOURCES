@@ -18,7 +18,7 @@ export default async function HomePage() {
                 <h1 className="text-[22px] md:text-3xl font-bold text-[#3A2418] mb-1 leading-tight text-center">
                     {config.highlight_text}
                 </h1>
-                <p className="text-[11px] md:text-[12px] font-semibold text-[#7D6656] tracking-[1px] uppercase mb-4 text-center">
+                <p className="text-[11px] md:text-[12px] font-semibold text-[#7D6656] tracking-[1px] uppercase mb-4 text-center hidden">
                     (VERIFIED & TOP RATED RECRUITERS)
                 </p>
                 <Link href="/main" className="inline-block bg-[#2E7D32] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#1B5E20] transition-colors shadow-lg">
