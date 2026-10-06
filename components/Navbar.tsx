@@ -62,15 +62,12 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-[100] bg-white/90 backdrop-blur-md border-b border-[#C5A059]/10 h-12">
       <div className="max-w-7xl mx-auto px-5 h-full flex justify-between items-center">
-        {/* LOGO - SVG BASED */}
+        {/* LOGO - TEXT BASED */}
         <Link href={user?.isAdmin ? "/admin" : "/"} className="transition-opacity hover:opacity-80">
-            <Image 
-              src="/logo.svg" 
-              alt="Logo" 
-              width={200} 
-              height={35} 
-              className="object-contain"
-            />
+          <div className="flex items-center font-black text-lg md:text-xl tracking-tighter">
+            <span className="text-[#3E2723]">CAREER</span>
+            <span className="text-[#C5A059] mx-1.5 text-xl md:text-2xl transform scale-y-110">RESOURCES</span>
+          </div>
         </Link>
 
         {/* DESKTOP MENU - COMPACT */}
