@@ -42,14 +42,12 @@ async function seedAdmin() {
 
     // Upsert Admin
     const query = `
-      INSERT INTO users (name, email, password_hash, is_admin, is_blocked, device_switch_count)
-      VALUES ($1, $2, $3, true, false, 0)
+      INSERT INTO users (name, email, password_hash, is_admin)
+      VALUES ($1, $2, $3, true)
       ON CONFLICT (email) 
       DO UPDATE SET 
         is_admin = true, 
-        password_hash = EXCLUDED.password_hash, 
-        is_blocked = false, 
-        device_switch_count = 0;
+        password_hash = EXCLUDED.password_hash;
     `;
 
     await pool.query(query, [name, email, hash]);
