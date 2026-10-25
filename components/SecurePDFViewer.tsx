@@ -85,15 +85,23 @@ const SecurePDF = ({ url }: { url: string }) => {
     const preventDefault = (e: any) => e.preventDefault();
     
     const handleVisibility = () => {
-      if (document.visibilityState === 'hidden') {
+      if (document.hidden || document.visibilityState === 'hidden') {
         setIsBlurred(true);
-      } else {
-        // Optional: Keep it blacked out until focus returns
       }
     };
 
     const handleBlur = () => setIsBlurred(true);
+    const handlePageHide = () => setIsBlurred(true);
+    const handleFreeze = () => setIsBlurred(true);
     const handleFocus = () => setIsBlurred(false);
+
+    const handleTouchStart = (e: TouchEvent) => {
+      // Detect 3+ touch points (often used for screenshots/recording gestures on mobile)
+      if (e.touches.length >= 3) {
+        setIsBlurred(true);
+        e.preventDefault();
+      }
+    };
 
     const handleKey = (e: KeyboardEvent) => {
       if (
@@ -111,9 +119,11 @@ const SecurePDF = ({ url }: { url: string }) => {
     document.addEventListener("copy", preventDefault);
     document.addEventListener("cut", preventDefault);
     document.addEventListener("dragstart", preventDefault);
+    document.addEventListener("touchstart", handleTouchStart, { passive: false });
     window.addEventListener("keydown", handleKey);
     window.addEventListener("blur", handleBlur);
     window.addEventListener("focus", handleFocus);
+    window.addEventListener("pagehide", handlePageHide);
     document.addEventListener("visibilitychange", handleVisibility);
 
     (document.body.style as any).webkitTouchCallout = "none";
@@ -124,9 +134,11 @@ const SecurePDF = ({ url }: { url: string }) => {
       document.removeEventListener("copy", preventDefault);
       document.removeEventListener("cut", preventDefault);
       document.removeEventListener("dragstart", preventDefault);
+      document.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("keydown", handleKey);
       window.removeEventListener("blur", handleBlur);
       window.removeEventListener("focus", handleFocus);
+      window.removeEventListener("pagehide", handlePageHide);
       document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
