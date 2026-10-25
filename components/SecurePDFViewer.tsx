@@ -85,14 +85,14 @@ const SecurePDF = ({ url }: { url: string }) => {
     const preventDefault = (e: any) => e.preventDefault();
     
     const handleVisibility = () => {
-      if (document.visibilityState === 'hidden') {
+      if (document.hidden || document.visibilityState === 'hidden') {
         setIsBlurred(true);
-      } else {
-        // Optional: Keep it blacked out until focus returns
       }
     };
 
     const handleBlur = () => setIsBlurred(true);
+    const handlePageHide = () => setIsBlurred(true);
+    const handleFreeze = () => setIsBlurred(true);
     const handleFocus = () => setIsBlurred(false);
 
     const handleKey = (e: KeyboardEvent) => {
@@ -114,6 +114,7 @@ const SecurePDF = ({ url }: { url: string }) => {
     window.addEventListener("keydown", handleKey);
     window.addEventListener("blur", handleBlur);
     window.addEventListener("focus", handleFocus);
+    window.addEventListener("pagehide", handlePageHide);
     document.addEventListener("visibilitychange", handleVisibility);
 
     (document.body.style as any).webkitTouchCallout = "none";
@@ -127,6 +128,7 @@ const SecurePDF = ({ url }: { url: string }) => {
       window.removeEventListener("keydown", handleKey);
       window.removeEventListener("blur", handleBlur);
       window.removeEventListener("focus", handleFocus);
+      window.removeEventListener("pagehide", handlePageHide);
       document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);

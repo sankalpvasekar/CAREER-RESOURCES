@@ -34,12 +34,7 @@ export default function LoginPage() {
       const data = await res.json();
 
       if (!res.ok) {
-        if (data.code === 'ACCOUNT_BLOCKED') {
-          toast.error(data.error, { duration: 6000 });
-        } else {
-          throw new Error(data.error || 'Login failed');
-        }
-        return;
+        throw new Error(data.error || 'Login failed');
       }
 
       // Store token

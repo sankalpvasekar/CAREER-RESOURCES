@@ -9,7 +9,9 @@ const pool = new Pool({
 async function migrate() {
   try {
     await pool.query('ALTER TABLE users ADD COLUMN IF NOT EXISTS payment_done BOOLEAN DEFAULT false');
-    console.log('✅ Column payment_done added to users table.');
+    await pool.query('ALTER TABLE users DROP COLUMN IF EXISTS is_blocked');
+    await pool.query('ALTER TABLE users DROP COLUMN IF EXISTS device_switch_count');
+    console.log('✅ Migration complete: payment_done added, is_blocked & device_switch_count dropped.');
   } catch (err) {
     console.error('Migration failed:', err);
   } finally {

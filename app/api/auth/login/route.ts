@@ -87,7 +87,7 @@ export async function POST(req: NextRequest) {
     // 1. Regular DB-based login flow...
     const users = await query<{
       id: number; name: string; email: string; password_hash: string;
-      is_admin: boolean; is_blocked: boolean; device_switch_count: number;
+      is_admin: boolean;
     }>('SELECT * FROM users WHERE email = $1', [cleanEmail]);
 
     if (users.length === 0) {
@@ -95,14 +95,6 @@ export async function POST(req: NextRequest) {
     }
 
     const user = users[0];
-
-    // 2. Check if blocked
-    if (user.is_blocked) {
-      return NextResponse.json({
-        error: 'Account blocked due to suspicious activity (too many device switches). Contact support.',
-        code: 'ACCOUNT_BLOCKED'
-      }, { status: 403 });
-    }
 
     // 3. Check password
     const valid = await bcrypt.compare(cleanPassword, user.password_hash);
@@ -120,23 +112,8 @@ export async function POST(req: NextRequest) {
     );
 
     let deviceSwitched = false;
-    // Only apply device-switch limits to non-admin users
     if (!user.is_admin && activeSessions.length > 0 && activeSessions[0].device_id !== deviceId) {
       deviceSwitched = true;
-      const newCount = user.device_switch_count + 1;
-
-      if (newCount >= 3) {
-        // Block the account
-        await query('UPDATE users SET is_blocked = true, device_switch_count = $1 WHERE id = $2', [newCount, user.id]);
-        // Invalidate all sessions
-        await query('UPDATE sessions SET is_active = false WHERE user_id = $1', [user.id]);
-        return NextResponse.json({
-          error: 'Account blocked: You have switched devices too many times. Contact support to unblock.',
-          code: 'ACCOUNT_BLOCKED'
-        }, { status: 403 });
-      }
-
-      await query('UPDATE users SET device_switch_count = $1 WHERE id = $2', [newCount, user.id]);
     }
 
     // 5. Invalidate ALL previous sessions (single device login)
