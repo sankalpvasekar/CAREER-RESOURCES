@@ -95,14 +95,6 @@ const SecurePDF = ({ url }: { url: string }) => {
     const handleFreeze = () => setIsBlurred(true);
     const handleFocus = () => setIsBlurred(false);
 
-    const handleTouchStart = (e: TouchEvent) => {
-      // Detect 3+ touch points (often used for screenshots/recording gestures on mobile)
-      if (e.touches.length >= 3) {
-        setIsBlurred(true);
-        e.preventDefault();
-      }
-    };
-
     const handleKey = (e: KeyboardEvent) => {
       if (
         e.key === "PrintScreen" || e.key === "F12" ||
@@ -119,7 +111,6 @@ const SecurePDF = ({ url }: { url: string }) => {
     document.addEventListener("copy", preventDefault);
     document.addEventListener("cut", preventDefault);
     document.addEventListener("dragstart", preventDefault);
-    document.addEventListener("touchstart", handleTouchStart, { passive: false });
     window.addEventListener("keydown", handleKey);
     window.addEventListener("blur", handleBlur);
     window.addEventListener("focus", handleFocus);
@@ -134,7 +125,6 @@ const SecurePDF = ({ url }: { url: string }) => {
       document.removeEventListener("copy", preventDefault);
       document.removeEventListener("cut", preventDefault);
       document.removeEventListener("dragstart", preventDefault);
-      document.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("keydown", handleKey);
       window.removeEventListener("blur", handleBlur);
       window.removeEventListener("focus", handleFocus);
