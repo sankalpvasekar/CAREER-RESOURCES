@@ -10,7 +10,11 @@ const nextConfig = {
       },
     ],
   },
-  turbopack: {},
+  turbopack: {
+    resolveAlias: {
+      canvas: './lib/canvas-mock.js',
+    },
+  },
   webpack: (config) => {
     config.resolve.alias.canvas = false;
     return config;
