@@ -12,10 +12,10 @@ export async function POST(req: NextRequest) {
     const payload = verifyToken(token);
     if (!payload) return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
 
-    // Fetch price from site_config
-    const config = await query<{ price: number }>('SELECT price FROM site_config WHERE id = 1');
+    // Fetch price from admins_data
+    const config = await query<{ price: number }>('SELECT price FROM admins_data WHERE id = 1');
     if (config.length === 0) return NextResponse.json({ error: 'Configuration missing' }, { status: 404 });
-    const price = config[0].price || 499.00;
+    const price = Number(config[0].price) || 499.00;
 
     // Mock/Sandbox Mode if keys are not set
     if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
