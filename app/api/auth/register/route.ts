@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     }
 
     const password_hash = await bcrypt.hash(password, 12);
-    const result = await query(
+    const result = await query<{ id: number }>(
       'INSERT INTO users (name, email, password_hash) VALUES ($1, $2, $3) RETURNING id',
       [name, email, password_hash]
     );
