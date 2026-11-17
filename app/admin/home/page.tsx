@@ -118,7 +118,7 @@ export default function HomeAdminPage() {
 
           <div className="bg-[#FFFBF2] border border-[#C5A059]/30 rounded-2xl p-4 text-xs text-[#5D4037] leading-relaxed">
             <span className="font-bold block mb-1">💡 Mobile Pointwise Tip:</span>
-            Enter each point on a <strong>new line</strong> (press Enter). On mobile UI, each line will automatically display as a clean, stylish point with a green verification checkmark.
+            Enter each point on a <strong>new line</strong> (press Enter). On the mobile UI, each line will display as clean, formal pointwise bullet text at 12px font size without taking up unnecessary screen space.
           </div>
 
           <textarea
@@ -168,29 +168,25 @@ export default function HomeAdminPage() {
             {/* Mobile Card Preview */}
             <div className="p-4 bg-[#FDFBF7] border border-[#C5A059]/30 rounded-3xl shadow-sm text-center">
               {previewPoints.length > 1 ? (
-                <ul className="space-y-2.5 text-left my-2">
+                <ul className="space-y-2 text-left my-2 px-1">
                   {previewPoints.map((point, index) => (
                     <li
                       key={index}
-                      className="flex items-start gap-2.5 bg-white/80 p-3 rounded-2xl border border-[#C5A059]/20 shadow-2xs"
+                      className="flex items-start gap-2 text-[12px] font-semibold text-[#3A2418] leading-relaxed"
                     >
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#2E7D32]/15 text-[#2E7D32] flex items-center justify-center mt-0.5">
-                        <Check className="w-3 h-3 stroke-[3]" />
-                      </span>
-                      <span className="text-[13px] font-bold text-[#3A2418] leading-snug">
-                        {point}
-                      </span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#3A2418] mt-1.5 shrink-0" />
+                      <span>{point}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <h1 className="text-base font-bold text-[#3A2418] mb-4 leading-snug">
+                <p className="text-[12px] font-semibold text-[#3A2418] mb-3 leading-relaxed text-center">
                   {previewPoints[0] || '600+ Companies Career Websites [100% FREE Access]'}
-                </h1>
+                </p>
               )}
 
-              <div className="mt-4">
-                <span className="inline-block bg-[#2E7D32] text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-md">
+              <div className="mt-3">
+                <span className="inline-block bg-[#2E7D32] text-white px-5 py-2 rounded-full font-bold text-xs shadow-md">
                   Click Here
                 </span>
               </div>
